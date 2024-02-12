@@ -1,0 +1,30 @@
+# 스프링부트 빌드 및 실행
+
+spring-boot-starter-web
+
+- spring-boot-starter-tomcat: 웹서버
+- spirng-webmvc: 스프링 웹 mvc
+
+spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(view)
+
+-
+
+spring-boot-starter: 스프링 부트 + 스프링 코어 + 로깅
+
+- spring-boot
+- spring-core
+- spring-boot-starter-logging
+- logback, slf4j
+
+동작화면
+
+![스크린샷 2024-02-11 오후 11.03.05.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/30914778-8bfa-404a-8db1-10f28062c17e/6bda251c-3bfb-4a18-a8f7-23758090ce4b/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-02-11_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.03.05.png)
+
+- 컨트롤러에서 리턴 값으로 문자를 반환하면 뷰 리졸버가 화면을 찾아서 처리한다.
+- 스프링 부트 템플릿엔진 기본 viewName aovld
+- resoureses:templates/ + {ViewName} + .html
+
+    ![스크린샷 2024-02-11 오후 11.17.42.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/30914778-8bfa-404a-8db1-10f28062c17e/1213d870-72c3-4885-8c98-be1d2856bfc8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-02-11_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.17.42.png)
+
+- java -jar study-0.0.1-SNAPSHOT.jar 명령어를 통해 스프링 부트 실행이 가능하다.
+즉, 서버 활성화가 가능.

@@ -1,0 +1,36 @@
+# 스프링 웹 개발
+
+정적 컨텐츠 : 정적 파일을 그대로 고객에게 전달(반환)해주는 개발 방식
+
+MVC : 데이터를 가공해서 전달하는 개발 방식
+
+API: JSON 데이터 구조 포맷으로 데이터를 전달하는 방식
+
+정적 컨텐츠
+
+![스크린샷 2024-02-11 오후 11.54.54.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/30914778-8bfa-404a-8db1-10f28062c17e/ea6e6efb-93cf-483a-9062-d6db6a5d9275/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-02-11_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_11.54.54.png)
+
+MVC와 템플릿 엔진
+
+![스크린샷 2024-02-12 오전 12.07.13.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/30914778-8bfa-404a-8db1-10f28062c17e/ecdccc47-0482-4e2a-816f-649770174d9a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-02-12_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_12.07.13.png)
+
+```java
+@GetMapping("hello-mvc")
+    public String hellomMvc(@RequestParam(value = "name", required = false) String name,
+        Model model) {
+        model.addAttribute("name", name);
+        return "hello-template";
+    }
+```
+
+- 웹에서 name을 직접 입력
+
+viewResolver가 templates/hello-template.html을 변환해서 웹 브라우저에 넘겨준다.
+
+### API 방식
+
+![스크린샷 2024-02-12 오후 4.46.57.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/30914778-8bfa-404a-8db1-10f28062c17e/f9dcab23-b464-4312-a3d4-3c676d843bbe/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-02-12_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.46.57.png)
+
+@ResponseBody
+
+: http에서 헤더부와 바디부가 있는데, 바디부에 데이터를 직접 넣어준다는 의미
