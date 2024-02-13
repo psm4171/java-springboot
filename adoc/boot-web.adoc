@@ -64,6 +64,25 @@ public List<Person> getPersons(@PathVariable(name="personId", required=true) Lon
 }
 ```
 
+## @RequseHeader
+
+: 요청 Header값 읽어오기
+
+- 요청 Http 헤더를 처리하기 위한 어노테이션
+
+```java
+GET /some-request HTTP/1.1
+Host: localhost:8080
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36
+
+// controller
+@GetMapping("/some-request")
+public List<User> getUsers(@RequestHeader(name = "User-Agent") String userAgent) {
+    // ...
+}
+
+```
+
 ### 간단한 비즈니스 요구사항 정리
 
 데이터: 회원ID, 이름
