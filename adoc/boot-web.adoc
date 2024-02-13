@@ -35,6 +35,35 @@ viewResolver가 templates/hello-template.html을 변환해서 웹 브라우저�
 
 : http에서 헤더부와 바디부가 있는데, 바디부에 데이터를 직접 넣어준다는 의미
 
+@RequestParam
+
+: 요청 URL의 Query String을 처리하기 위한 어노테이션
+
+```java
+GET http://localhost:8080/persons?order=-createdAt
+
+@GetMapping("/persons")
+public List<Person> getPersons(@RequestParam(name="order") String order) {
+    // ...
+}
+
+```
+
+- 요청 URL의 가변 인자 가져오는 @PathVariable
+
+: 요청 URL의 Path를 처리하기 위한 어노테이션
+
+- `@RequestMapping` 의 path 에 변수명을 입력받기 위한 place holder 가 필요하다.
+
+```java
+GET http://localhost:8080/persons/99499102
+
+@GetMapping("/persons/{personId}")
+public List<Person> getPersons(@PathVariable(name="personId", required=true) Long personId) {
+    // ...
+}
+```
+
 ### 간단한 비즈니스 요구사항 정리
 
 데이터: 회원ID, 이름
