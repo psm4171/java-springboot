@@ -83,6 +83,32 @@ public List<User> getUsers(@RequestHeader(name = "User-Agent") String userAgent)
 
 ```
 
+## @ModelAttribute
+
+: 메서드에 선언된 경우, 모든 RequestMapping에 앞서 호출되어 공통 속성을 제공
+
+```java
+@ModelAttribute("user")
+public User getUser(@PathVariable("userId") String userId) {
+    return userRepository.getUser(userId);
+}
+```
+
+1. Model
+- 일반적으로 컨트롤러 메서드의 매개변수로 선언 되어 사용된다.
+- 예를 들어, **`model.addAttribute("key", value)`** 형식으로 데이터를 추가
+
+1. ModelMap
+- Model의 구현 클래스, Model을 상속하며, 맵 형태의 데이터를 저장할 수 있는 기능 제공
+- 여러 개의 데이터를 한 번에 저장하거나, 특정 데이터를 제거하는 등의 작업이 가능
+
+1. ModelAndView
+- 컨트롤러 메서드는 데이터와 뷰의 이름을 함께 반환하여 사용
+- **`ModelAndView`**의 생성자를 사용하여 데이터와 뷰 이름을 지정하거나, 데이터를 추가할 수 있다.
+
+즉,  **`Model`**은 데이터를 저장하고 전달하는 데 사용되고, **`ModelMap`**은 **`Model`**의 확장으로 더 많은 유연성을 제공하며, **`ModelAndView`**는 데이터와 뷰 이름을 함께 다루는 데 사용됩니다.
+
+
 ### 간단한 비즈니스 요구사항 정리
 
 데이터: 회원ID, 이름
